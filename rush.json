@@ -381,8 +381,20 @@
    */
   "projects": [
     {
+      "packageName": "editor-main",
+      "projectFolder": "apps/editor-main"
+    },
+    {
       "packageName": "editor-portal",
       "projectFolder": "apps/editor-portal"
+    },
+    {
+      "packageName": "editor-shim",
+      "projectFolder": "apps/editor-shim"
+    },
+    {
+      "packageName": "editor-atomic",
+      "projectFolder": "apps/editor-atomic"
     }
     // {
     //   /**
