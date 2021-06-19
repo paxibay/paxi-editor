@@ -1,7 +1,10 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@rush-temp/editor-atomic': file:./projects/editor-atomic.tgz
+  '@rush-temp/editor-main': file:./projects/editor-main.tgz
   '@rush-temp/editor-portal': file:./projects/editor-portal.tgz
+  '@rush-temp/editor-shim': file:./projects/editor-shim.tgz
   '@testing-library/jest-dom': ^5.12.0
   '@testing-library/react': ^11.2.7
   '@testing-library/user-event': ^12.8.3
@@ -16,7 +19,10 @@ specifiers:
   web-vitals: ^1.1.2
 
 dependencies:
+  '@rush-temp/editor-atomic': file:projects/editor-atomic.tgz
+  '@rush-temp/editor-main': file:projects/editor-main.tgz
   '@rush-temp/editor-portal': file:projects/editor-portal.tgz
+  '@rush-temp/editor-shim': file:projects/editor-shim.tgz
   '@testing-library/jest-dom': 5.14.1
   '@testing-library/react': 11.2.7_react-dom@17.0.2+react@17.0.2
   '@testing-library/user-event': 12.8.3
@@ -11749,9 +11755,117 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
+  file:projects/editor-atomic.tgz:
+    resolution: {integrity: sha512-nGv78PUG4755+JCab/6nXH2lDiUQ3laAXXHQNpNwbYPoIY4pu1/ZuKrXW04jXxdbmBbHs1dED3G/a6vBoybkLw==, tarball: file:projects/editor-atomic.tgz}
+    name: '@rush-temp/editor-atomic'
+    version: 0.0.0
+    dependencies:
+      '@testing-library/jest-dom': 5.14.1
+      '@testing-library/react': 11.2.7_react-dom@17.0.2+react@17.0.2
+      '@testing-library/user-event': 12.8.3
+      '@types/jest': 26.0.23
+      '@types/node': 12.20.15
+      '@types/react': 17.0.11
+      '@types/react-dom': 17.0.8
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-scripts: 4.0.3_react@17.0.2+typescript@4.3.4
+      typescript: 4.3.4
+      web-vitals: 1.1.2
+    transitivePeerDependencies:
+      - '@testing-library/dom'
+      - '@types/webpack'
+      - bufferutil
+      - canvas
+      - fibers
+      - node-sass
+      - sass
+      - sockjs-client
+      - supports-color
+      - ts-node
+      - type-fest
+      - utf-8-validate
+      - webpack-cli
+      - webpack-command
+      - webpack-hot-middleware
+      - webpack-plugin-serve
+    dev: false
+
+  file:projects/editor-main.tgz:
+    resolution: {integrity: sha512-5mnaUTswCXxNWymLY+UWIRUlfaYHMojTHAdLp3OrkMWNwibjLcgMHGLYNN5Pf0Och3rY8iOL7SluHo+CjuUsWA==, tarball: file:projects/editor-main.tgz}
+    name: '@rush-temp/editor-main'
+    version: 0.0.0
+    dependencies:
+      '@testing-library/jest-dom': 5.14.1
+      '@testing-library/react': 11.2.7_react-dom@17.0.2+react@17.0.2
+      '@testing-library/user-event': 12.8.3
+      '@types/jest': 26.0.23
+      '@types/node': 12.20.15
+      '@types/react': 17.0.11
+      '@types/react-dom': 17.0.8
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-scripts: 4.0.3_react@17.0.2+typescript@4.3.4
+      typescript: 4.3.4
+      web-vitals: 1.1.2
+    transitivePeerDependencies:
+      - '@testing-library/dom'
+      - '@types/webpack'
+      - bufferutil
+      - canvas
+      - fibers
+      - node-sass
+      - sass
+      - sockjs-client
+      - supports-color
+      - ts-node
+      - type-fest
+      - utf-8-validate
+      - webpack-cli
+      - webpack-command
+      - webpack-hot-middleware
+      - webpack-plugin-serve
+    dev: false
+
   file:projects/editor-portal.tgz:
     resolution: {integrity: sha512-TbIz9sJsCbCjju8g8oMWOGFbuVlqHAbBGkH28mXU1HcZziDcjJWrUpQYpxKChSAqz46VMj8E0qFtJra0S5vtFw==, tarball: file:projects/editor-portal.tgz}
     name: '@rush-temp/editor-portal'
+    version: 0.0.0
+    dependencies:
+      '@testing-library/jest-dom': 5.14.1
+      '@testing-library/react': 11.2.7_react-dom@17.0.2+react@17.0.2
+      '@testing-library/user-event': 12.8.3
+      '@types/jest': 26.0.23
+      '@types/node': 12.20.15
+      '@types/react': 17.0.11
+      '@types/react-dom': 17.0.8
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-scripts: 4.0.3_react@17.0.2+typescript@4.3.4
+      typescript: 4.3.4
+      web-vitals: 1.1.2
+    transitivePeerDependencies:
+      - '@testing-library/dom'
+      - '@types/webpack'
+      - bufferutil
+      - canvas
+      - fibers
+      - node-sass
+      - sass
+      - sockjs-client
+      - supports-color
+      - ts-node
+      - type-fest
+      - utf-8-validate
+      - webpack-cli
+      - webpack-command
+      - webpack-hot-middleware
+      - webpack-plugin-serve
+    dev: false
+
+  file:projects/editor-shim.tgz:
+    resolution: {integrity: sha512-6HQRQj9m/xeujgdwJKTtOHcTb6uCjRh1WWTB+shkJ7vdFvZ5Xic1+NfChbqY0jaTr7Q6iVRGIgxk09Ytb1kJ8Q==, tarball: file:projects/editor-shim.tgz}
+    name: '@rush-temp/editor-shim'
     version: 0.0.0
     dependencies:
       '@testing-library/jest-dom': 5.14.1
