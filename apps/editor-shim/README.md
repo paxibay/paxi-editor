@@ -1,46 +1,103 @@
-# Getting Started with Create React App
+# TSDX User Guide
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
 
-## Available Scripts
+> This TSDX setup is meant for developing libraries (not apps!) that can be published to NPM. If you’re looking to build a Node app, you could use `ts-node-dev`, plain `ts-node`, or simple `tsc`.
 
-In the project directory, you can run:
+> If you’re new to TypeScript, checkout [this handy cheatsheet](https://devhints.io/typescript)
 
-### `npm start`
+## Commands
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+TSDX scaffolds your new library inside `/src`.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To run TSDX, use:
 
-### `npm test`
+```bash
+npm start # or yarn start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
 
-### `npm run build`
+To do a one-off build, use `npm run build` or `yarn build`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run tests, use `npm test` or `yarn test`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Configuration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Code quality is set up for you with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
 
-### `npm run eject`
+### Jest
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Jest tests are set up to run with `npm test` or `yarn test`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Bundle Analysis
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[`size-limit`](https://github.com/ai/size-limit) is set up to calculate the real cost of your library with `npm run size` and visualize the bundle with `npm run analyze`.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Setup Files
 
-## Learn More
+This is the folder structure we set up for you:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```txt
+/src
+  index.tsx       # EDIT THIS
+/test
+  blah.test.tsx   # EDIT THIS
+.gitignore
+package.json
+README.md         # EDIT THIS
+tsconfig.json
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Rollup
+
+TSDX uses [Rollup](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
+
+### TypeScript
+
+`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
+
+## Continuous Integration
+
+### GitHub Actions
+
+Two actions are added by default:
+
+- `main` which installs deps w/ cache, lints, tests, and builds on all pushes against a Node and OS matrix
+- `size` which comments cost comparison of your library on every pull request using [`size-limit`](https://github.com/ai/size-limit)
+
+## Optimizations
+
+Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
+
+```js
+// ./types/index.d.ts
+declare var __DEV__: boolean;
+
+// inside your code...
+if (__DEV__) {
+  console.log('foo');
+}
+```
+
+You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
+
+## Module Formats
+
+CJS, ESModules, and UMD module formats are supported.
+
+The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
+
+## Named Exports
+
+Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
+
+## Including Styles
+
+There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
+
+For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
+
+## Publishing to NPM
+
+We recommend using [np](https://github.com/sindresorhus/np).
